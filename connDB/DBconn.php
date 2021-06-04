@@ -1,38 +1,14 @@
-<?php
-class DB{
-    private $host;
-    private $db;
-    private $user;
-    private $password;
-    private $charset;
+<?php 
 
-    public function __construct(){
-        $this->host     = 'localhost';
-        $this->db       = 'pelicula';
-        $this->user     = 'root';
-        $this->password = '';
-        $this->charset  = 'utf8mb4';
+ $servername = "localhost";
+ $database = "pelicula";  
+ $username = "root"; 
+ $password = ""; 
+
+ $conn = mysqli_connect($servername, $username, $password, $database);
+   if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error()); 
+        } else{     
+            mysqli_select_db($conn,'peliculas');
     }
-
-    function connect(){
-    
-        try{
-
-            
-            $connection = "mysql:host=".$this->host.";dbname=" . $this->db . ";charset=" . $this->charset;
-            $options = [
-                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_EMULATE_PREPARES   => false,
-            ];
-            //$pdo = new PDO($connection, $this->user, $this->password, $options);
-            $pdo = new PDO($connection,$this->user,$this->password);
-        
-            return $pdo;
-
-
-        }catch(PDOException $e){
-            print_r('Error connection: ' . $e->getMessage());
-        }   
-    }
-}
 ?>

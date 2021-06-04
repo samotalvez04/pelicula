@@ -1,6 +1,7 @@
 <?php
 
 
+
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +15,8 @@
 </head>
 
 <style>
-    h3, input {
+    h3,
+    input {
         display: inline;
     }
 </style>
@@ -24,16 +26,29 @@
     <div id="general">
         <div>
             <h1>Agregar Pelicula</h1>
-            <form action="./actions/agregarPeli.php" method="post">
+            <form action="./actions/agregar.php" method="post">
                 <h3>Nombre: </h3>
                 <input type="text" name="nombre" id="nombre">
                 <br><br>
                 <h3>Imagen de pelicula: </h3>
                 <input type="text" name="imagen" id="imagen">
                 <br><br>
-                <h3>Estado de disponibilidad: </h3>
-                <input type="number" max="1" min="0" name="state" id="state"> <br> <br> <br>
-                <input type="submit" value="Agregar pelicula">
+                <input name="nuevaPeli" type="submit" value="Agregar pelicula">
+            </form>
+        </div>
+        <div>
+            <h1>Obtener pelicula</h1>
+            <form action="./actions/obtener.php" method="post">
+                <h3>ID de pelicula: </h3>
+                <input type="number" name="idPel" min="1" id="idPel">
+                <input type="submit" value="Obtener pelicula">
+            </form>
+        </div>
+        <br>
+        <div>
+            <h1>Obtener peliculas</h1>
+            <form action="./actions/obtenerPelis.php" method="post">
+                <input type="submit" value="Obtener peliculas">
             </form>
         </div>
     </div>
